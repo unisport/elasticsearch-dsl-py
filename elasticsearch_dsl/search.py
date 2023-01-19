@@ -1,5 +1,5 @@
 import copy
-import collections
+import collections.abc
 
 from six import iteritems, string_types
 
@@ -94,7 +94,7 @@ class Request(object):
         if isinstance(doc_type, (tuple, list)):
             for dt in doc_type:
                 self._add_doc_type(dt)
-        elif isinstance(doc_type, collections.Mapping):
+        elif isinstance(doc_type, collections.abc.Mapping):
             self._doc_type.extend(doc_type.keys())
             self._doc_type_map.update(doc_type)
         elif doc_type:

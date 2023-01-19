@@ -1,4 +1,4 @@
-import collections
+import collections.abc
 
 from six import iteritems
 from itertools import chain
@@ -90,7 +90,7 @@ class Mapping(object):
         # metadata like _all etc
         for name, value in iteritems(raw):
             if name != 'properties':
-                if isinstance(value, collections.Mapping):
+                if isinstance(value, collections.abc.Mapping):
                     self.meta(name, **value)
                 else:
                     self.meta(name, value)
